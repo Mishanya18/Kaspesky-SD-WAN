@@ -817,18 +817,3 @@ try:
           break
 except Exception as e:
     print("Не удалось найти SD-WAN Instance", e)
-
-# Get default Firewall template
-try:
-    response=sess.get('https://'+ ip +'/api/nfv/sdwan/cpe/firewallTemplate/default',headers={'X-CSRF-TOKEN': sess.cookies['CSRF-TOKEN']})
-    dfwID = response.json()['id']
-except Exception as e:
-    print("Не удалось найти Default CPE Firewall Template", e)
-
-# Get default Net Flow Template
-try:
-    response=sess.get('https://'+ ip +'/api/nfv/sdwan/netflow/default',headers={'X-CSRF-TOKEN': sess.cookies['CSRF-TOKEN']})
-    dnfID = response.json()['id']
-except Exception as e:
-    print("Не удалось найти Default NetFlow template", e)
-
